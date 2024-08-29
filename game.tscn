@@ -1,19 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx7xwlloxvrht"]
+[gd_scene load_steps=5 format=3 uid="uid://cx7xwlloxvrht"]
 
 [ext_resource type="AudioStream" uid="uid://fjckif860o3e" path="res://sounds/kick-bass-techno-softer-3.wav" id="1_1vjy8"]
-[ext_resource type="Script" path="res://game.gd" id="1_fp6wf"]
-[ext_resource type="Script" path="res://bass_drum.gd" id="2_h5pdx"]
+[ext_resource type="Script" path="res://game_screen.gd" id="1_fp6wf"]
 
-[node name="Game" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_6qt4u"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_61ygx"]
+gradient = SubResource("Gradient_6qt4u")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.860092, 0.37844)
+
+[node name="GameScreen" type="Node2D"]
 script = ExtResource("1_fp6wf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="MainMenuBackground" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 34.0
+offset_right = 1145.0
+offset_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_61ygx")
 
 [node name="BassDrum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_1vjy8")
 autoplay = true
-script = ExtResource("2_h5pdx")
 
 [node name="BassDrumTimer" type="Timer" parent="BassDrum"]
+wait_time = 1.2
 autostart = true
 
 [connection signal="timeout" from="BassDrum/BassDrumTimer" to="." method="_on_bass_drum_timer_timeout"]
-[connection signal="timeout" from="BassDrum/BassDrumTimer" to="BassDrum" method="_on_timer_timeout"]

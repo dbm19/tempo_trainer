@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxx0nbvya2muc"]
+
+[ext_resource type="Script" path="res://bpm_select.gd" id="1_5mrto"]
+[ext_resource type="Texture2D" uid="uid://dje8cwxvmpktq" path="res://art_assets/bpm_select_title.png" id="2_l6wi1"]
+[ext_resource type="Texture2D" uid="uid://ds3g6s7tn0pjl" path="res://art_assets/bpm_60.png" id="3_ch1mn"]
+[ext_resource type="Texture2D" uid="uid://delan4cj44klv" path="res://art_assets/bpm_100.png" id="4_avg1j"]
+[ext_resource type="Texture2D" uid="uid://c0n0om77bww08" path="res://art_assets/bpm_120.png" id="5_cgwjx"]
+[ext_resource type="Texture2D" uid="uid://c8p1afn4thsat" path="res://art_assets/back_button.png" id="6_hwpkx"]
+[ext_resource type="Script" path="res://back_button.gd" id="7_a00xx"]
+
+[sub_resource type="Gradient" id="Gradient_u4xs7"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xy4aa"]
+gradient = SubResource("Gradient_u4xs7")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.860092, 0.37844)
+
+[node name="BpmSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5mrto")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_xy4aa")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -338.0
+offset_right = 312.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="BpmSelectUiContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BpmSelectTitle" type="TextureRect" parent="MarginContainer/BpmSelectUiContainer"]
+layout_mode = 2
+texture = ExtResource("2_l6wi1")
+
+[node name="BpmButtonsContainer" type="VBoxContainer" parent="MarginContainer/BpmSelectUiContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="60BpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
+layout_mode = 2
+icon = ExtResource("3_ch1mn")
+flat = true
+icon_alignment = 1
+
+[node name="10BpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
+layout_mode = 2
+icon = ExtResource("4_avg1j")
+flat = true
+icon_alignment = 1
+
+[node name="120BpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
+layout_mode = 2
+icon = ExtResource("5_cgwjx")
+flat = true
+icon_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("6_hwpkx")
+flat = true
+icon_alignment = 1
+script = ExtResource("7_a00xx")
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

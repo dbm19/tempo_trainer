@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2ws6iptmv3au"]
+
+[ext_resource type="Texture2D" uid="uid://dseoeoas6kau1" path="res://art_assets/game_title.png" id="1_c3tcn"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_qojpp"]
+[ext_resource type="Texture2D" uid="uid://b6ylowk8t4b4a" path="res://art_assets/new_game_button.png" id="2_kvft6"]
+
+[sub_resource type="Gradient" id="Gradient_dog5j"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_veudo"]
+gradient = SubResource("Gradient_dog5j")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.860092, 0.37844)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qojpp")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_veudo")
+
+[node name="MainMenuUiContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -142.0
+offset_right = 312.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GameTitle" type="TextureRect" parent="MainMenuUiContainer"]
+layout_mode = 2
+texture = ExtResource("1_c3tcn")
+
+[node name="NewGameButton" type="Button" parent="MainMenuUiContainer"]
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("2_kvft6")
+flat = true
+icon_alignment = 1
+
+[connection signal="button_down" from="MainMenuUiContainer/NewGameButton" to="." method="_on_new_game_button_button_down"]
+[connection signal="mouse_entered" from="MainMenuUiContainer/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainMenuUiContainer/NewGameButton" to="." method="_on_new_game_button_mouse_exited"]
+[connection signal="pressed" from="MainMenuUiContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
