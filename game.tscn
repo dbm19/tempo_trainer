@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx7xwlloxvrht"]
+
+[ext_resource type="AudioStream" uid="uid://fjckif860o3e" path="res://sounds/kick-bass-techno-softer-3.wav" id="1_1vjy8"]
+[ext_resource type="Script" path="res://game.gd" id="1_fp6wf"]
+[ext_resource type="Script" path="res://bass_drum.gd" id="2_h5pdx"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_fp6wf")
+
+[node name="BassDrum" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_1vjy8")
+autoplay = true
+script = ExtResource("2_h5pdx")
+
+[node name="BassDrumTimer" type="Timer" parent="BassDrum"]
+autostart = true
+
+[connection signal="timeout" from="BassDrum/BassDrumTimer" to="." method="_on_bass_drum_timer_timeout"]
+[connection signal="timeout" from="BassDrum/BassDrumTimer" to="BassDrum" method="_on_timer_timeout"]
