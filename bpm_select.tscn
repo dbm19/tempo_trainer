@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxx0nbvya2muc"]
+[gd_scene load_steps=11 format=3 uid="uid://dxx0nbvya2muc"]
 
 [ext_resource type="Script" path="res://bpm_select.gd" id="1_5mrto"]
 [ext_resource type="Texture2D" uid="uid://dje8cwxvmpktq" path="res://art_assets/bpm_select_title.png" id="2_l6wi1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c0n0om77bww08" path="res://art_assets/bpm_120.png" id="5_cgwjx"]
 [ext_resource type="Texture2D" uid="uid://c8p1afn4thsat" path="res://art_assets/back_button.png" id="6_hwpkx"]
 [ext_resource type="Script" path="res://back_button.gd" id="7_a00xx"]
+[ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="8_b2dxe"]
 
 [sub_resource type="Gradient" id="Gradient_u4xs7"]
 
@@ -93,11 +94,19 @@ icon_alignment = 1
 script = ExtResource("7_a00xx")
 
 [node name="BpmInput" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 852.0
-offset_top = 324.0
-offset_right = 1113.0
-offset_bottom = 355.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_b2dxe")
+theme_override_font_sizes/font_size = 50
 
 [connection signal="pressed" from="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/SixtyBpmButton" to="." method="_on_sixty_bpm_button_pressed"]
 [connection signal="pressed" from="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/HundredBpmButton" to="." method="_on_hundred_bpm_button_pressed"]

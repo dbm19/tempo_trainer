@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx7xwlloxvrht"]
+[gd_scene load_steps=6 format=3 uid="uid://cx7xwlloxvrht"]
 
 [ext_resource type="AudioStream" uid="uid://fjckif860o3e" path="res://sounds/kick-bass-techno-softer-3.wav" id="1_1vjy8"]
 [ext_resource type="Script" path="res://game_screen.gd" id="1_fp6wf"]
+[ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="3_4r0es"]
 
 [sub_resource type="Gradient" id="Gradient_6qt4u"]
 
@@ -13,23 +14,14 @@ fill_to = Vector2(0.860092, 0.37844)
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_fp6wf")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="MainMenuBackground" type="TextureRect" parent="Control"]
-layout_mode = 1
+[node name="MainMenuBackground" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = 34.0
-offset_right = 1145.0
-offset_bottom = 642.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 1180.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_61ygx")
@@ -39,5 +31,23 @@ stream = ExtResource("1_1vjy8")
 
 [node name="BassDrumTimer" type="Timer" parent="BassDrum"]
 wait_time = 0.4
+
+[node name="Countdown" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 512.0
+offset_top = 295.0
+offset_right = 670.0
+offset_bottom = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_4r0es")
+theme_override_font_sizes/font_size = 50
+text = "sdfsdf"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="BassDrum/BassDrumTimer" to="." method="_on_bass_drum_timer_timeout"]
