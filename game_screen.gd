@@ -10,15 +10,12 @@ var bass_drum_timer_goal
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bass_drum = get_node("BassDrum")
-	if Global.selected_bpm == 60:
-		get_node("BassDrum/BassDrumTimer").wait_time = 1
-	elif Global.selected_bpm == 100:
-		get_node("BassDrum/BassDrumTimer").wait_time = 0.6
-	else:
-		get_node("BassDrum/BassDrumTimer").wait_time = 0.5
-	bass_drum_timer_goal = get_node("BassDrum/BassDrumTimer").wait_time * 1000
 	bass_drum_timer = get_node("BassDrum/BassDrumTimer")
+
+	bass_drum_timer.wait_time = snapped(float(60.0 / Global.selected_bpm), 0.01)
 	
+	print(bass_drum_timer.wait_time, " ", float(60.0/Global.selected_bpm))
+	bass_drum_timer_goal = bass_drum_timer.wait_time * 1000
 	bass_drum.playing = true
 	bass_drum_timer.start()
 	print("Goal: ", bass_drum_timer_goal)
