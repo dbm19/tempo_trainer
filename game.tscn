@@ -36,10 +36,8 @@ texture = SubResource("GradientTexture2D_61ygx")
 
 [node name="BassDrum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_1vjy8")
-autoplay = true
 
 [node name="BassDrumTimer" type="Timer" parent="BassDrum"]
-wait_time = 1.2
-autostart = true
+wait_time = 0.4
 
 [connection signal="timeout" from="BassDrum/BassDrumTimer" to="." method="_on_bass_drum_timer_timeout"]

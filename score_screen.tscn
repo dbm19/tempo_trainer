@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://drm7q0tpulu3p"]
+[gd_scene load_steps=3 format=3 uid="uid://drm7q0tpulu3p"]
+
+[sub_resource type="Gradient" id="Gradient_dog5j"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3e4i"]
+gradient = SubResource("Gradient_dog5j")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.860092, 0.37844)
 
 [node name="ScoreScreen" type="Control"]
 layout_mode = 3
@@ -12,3 +19,12 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="ScoreScreenBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_a3e4i")

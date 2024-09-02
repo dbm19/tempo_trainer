@@ -65,25 +65,26 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="60BpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
+[node name="SixtyBpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
 layout_mode = 2
 icon = ExtResource("3_ch1mn")
 flat = true
 icon_alignment = 1
 
-[node name="10BpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
+[node name="HundredBpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
 layout_mode = 2
 icon = ExtResource("4_avg1j")
 flat = true
 icon_alignment = 1
 
-[node name="120BpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
+[node name="OneTwentyBpmButton" type="Button" parent="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer"]
 layout_mode = 2
 icon = ExtResource("5_cgwjx")
 flat = true
 icon_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
+layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 icon = ExtResource("6_hwpkx")
@@ -91,4 +92,7 @@ flat = true
 icon_alignment = 1
 script = ExtResource("7_a00xx")
 
+[connection signal="pressed" from="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/SixtyBpmButton" to="." method="_on_sixty_bpm_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/HundredBpmButton" to="." method="_on_hundred_bpm_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/OneTwentyBpmButton" to="." method="_on_one_twenty_bpm_button_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
