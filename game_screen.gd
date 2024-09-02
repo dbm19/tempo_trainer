@@ -52,6 +52,7 @@ func _on_bass_drum_timer_timeout() -> void:
 		game_start = true
 		countdown.text = ""
 		number_of_beats -= 1
+		bass_drum.volume_db = -100
 		if number_of_beats == -1:
 			print(score_set)
 			get_tree().change_scene_to_file("res://score_screen.tscn")
