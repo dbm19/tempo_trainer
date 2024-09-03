@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var player_hit_time_delta = 0
 var current_player_hit_time = 0
@@ -28,12 +28,12 @@ func _ready() -> void:
 	number_of_beats = Global.selected_length
 	game_start = false
 	beat_sprite_scene = preload("res://beat_sprite.tscn")
-	sprite_positions[0] = get_node("SpritePositionOne")
-	sprite_positions[1] = get_node("SpritePositionTwo")
-	sprite_positions[2] = get_node("SpritePositionThree")
-	sprite_positions[3] = get_node("SpritePositionFour")
-	sprite_positions[4] = get_node("SpritePositionFive")
-	sprite_positions[5] = get_node("SpritePositionSix")
+	sprite_positions[0] = get_node("Control/SpritePositionOne")
+	sprite_positions[1] = get_node("Control/SpritePositionTwo")
+	sprite_positions[2] = get_node("Control/SpritePositionThree")
+	sprite_positions[3] = get_node("Control/SpritePositionFour")
+	sprite_positions[4] = get_node("Control/SpritePositionFive")
+	sprite_positions[5] = get_node("Control/SpritePositionSix")
 
 	bass_drum_timer.wait_time = snapped(float(60.0 / Global.selected_bpm), 0.01)
 	
@@ -41,16 +41,14 @@ func _ready() -> void:
 	bass_drum.playing = true
 	bass_drum_timer.start()
 	countdown.text = str(eight_count)
-	
-	print("Goal: ", bass_drum_timer_goal)
-	
+
 func _process(delta: float) -> void:
 	if game_start == true:
 		if Input.is_action_just_pressed("player_hit"):
 			current_player_hit_time = Time.get_ticks_msec()
 			player_hit_time_delta = current_player_hit_time - drum_hit_array[drum_hit_array_index]
 			print(drum_hit_array[drum_hit_array_index], " ", current_player_hit_time)
-			score_set.append(player_hit_time_delta)
+			score_set.append(abs(player_hit_time_delta))
 			
 			beat_sprite = beat_sprite_scene.instantiate()
 			rng = RandomNumberGenerator.new()
@@ -86,7 +84,6 @@ func _on_bass_drum_timer_timeout() -> void:
 			for n in range(1, Global.selected_length + 1):
 				drum_hit_array.append(drum_hit + (n * bass_drum_timer_goal))
 			eight_count -= 1
-			print(drum_hit_array)
 		if number_of_beats == -1:
 			print(score_set)
 			get_tree().change_scene_to_file("res://score_screen.tscn")

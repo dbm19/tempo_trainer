@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cp6vk4vv3ychb"]
 
-[ext_resource type="Texture2D" uid="uid://bogn56bfgvkxl" path="res://icon.svg" id="1_vphil"]
+[ext_resource type="Texture2D" uid="uid://c41cdhvqblc2j" path="res://art_assets/beat_sprite.png" id="1_ncqy3"]
 [ext_resource type="Script" path="res://beat_sprite.gd" id="2_ywem7"]
 
 [sub_resource type="Animation" id="Animation_omycw"]
@@ -41,7 +41,7 @@ _data = {
 
 [node name="BeatSprite" type="Sprite2D"]
 scale = Vector2(4.07813, 4.07813)
-texture = ExtResource("1_vphil")
+texture = ExtResource("1_ncqy3")
 script = ExtResource("2_ywem7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

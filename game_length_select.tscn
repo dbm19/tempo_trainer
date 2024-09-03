@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c8p1afn4thsat" path="res://art_assets/back_button.png" id="8_e67t2"]
 [ext_resource type="Script" path="res://back_button.gd" id="9_tpicg"]
 
-[sub_resource type="Gradient" id="Gradient_1lqo8"]
+[sub_resource type="Gradient" id="Gradient_i5hsn"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ivglp"]
-gradient = SubResource("Gradient_1lqo8")
+gradient = SubResource("Gradient_i5hsn")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.860092, 0.37844)
 

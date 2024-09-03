@@ -6,6 +6,7 @@ var selected_length
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	selected_bpm = 120
+	selected_length = 16
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

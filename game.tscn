@@ -4,27 +4,58 @@
 [ext_resource type="Script" path="res://game_screen.gd" id="1_fp6wf"]
 [ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="3_4r0es"]
 
-[sub_resource type="Gradient" id="Gradient_6qt4u"]
+[sub_resource type="Gradient" id="Gradient_va3cf"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_61ygx"]
-gradient = SubResource("Gradient_6qt4u")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qmaxg"]
+gradient = SubResource("Gradient_va3cf")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.860092, 0.37844)
 
-[node name="GameScreen" type="Node2D"]
-script = ExtResource("1_fp6wf")
-
-[node name="MainMenuBackground" type="TextureRect" parent="."]
+[node name="Control" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = 1.0
-offset_right = 1180.0
-offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_61ygx")
+script = ExtResource("1_fp6wf")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_qmaxg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpritePositionOne" type="Marker2D" parent="Control"]
+position = Vector2(-489, -247)
+
+[node name="SpritePositionTwo" type="Marker2D" parent="Control"]
+position = Vector2(-35, -241)
+
+[node name="SpritePositionThree" type="Marker2D" parent="Control"]
+position = Vector2(428, -234)
+
+[node name="SpritePositionFour" type="Marker2D" parent="Control"]
+position = Vector2(-437, 212)
+
+[node name="SpritePositionFive" type="Marker2D" parent="Control"]
+position = Vector2(-1, 217)
+
+[node name="SpritePositionSix" type="Marker2D" parent="Control"]
+position = Vector2(449, 220)
 
 [node name="BassDrum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_1vjy8")
@@ -33,15 +64,16 @@ stream = ExtResource("1_1vjy8")
 wait_time = 0.4
 
 [node name="Countdown" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 512.0
-offset_top = 295.0
-offset_right = 670.0
-offset_bottom = 351.0
+offset_left = -64.0
+offset_top = -29.0
+offset_right = 94.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_4r0es")
@@ -49,23 +81,5 @@ theme_override_font_sizes/font_size = 50
 text = "sdfsdf"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="SpritePositionOne" type="Marker2D" parent="."]
-position = Vector2(131, 113)
-
-[node name="SpritePositionTwo" type="Marker2D" parent="."]
-position = Vector2(906, 184)
-
-[node name="SpritePositionThree" type="Marker2D" parent="."]
-position = Vector2(176, 398)
-
-[node name="SpritePositionFour" type="Marker2D" parent="."]
-position = Vector2(434, 74)
-
-[node name="SpritePositionFive" type="Marker2D" parent="."]
-position = Vector2(964, 425)
-
-[node name="SpritePositionSix" type="Marker2D" parent="."]
-position = Vector2(533, 553)
 
 [connection signal="timeout" from="BassDrum/BassDrumTimer" to="." method="_on_bass_drum_timer_timeout"]
