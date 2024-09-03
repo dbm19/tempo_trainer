@@ -13,6 +13,7 @@ var game_start
 var score_set = []
 var beat_sprite_scene
 var beat_sprite
+var sprite_positions = [0, 1, 2, 3, 4, 5]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,12 @@ func _ready() -> void:
 	number_of_beats = 16
 	game_start = false
 	beat_sprite_scene = preload("res://beat_sprite.tscn")
+	sprite_positions[0] = get_node("SpritePositionOne")
+	sprite_positions[1] = get_node("SpritePositionTwo")
+	sprite_positions[2] = get_node("SpritePositionThree")
+	sprite_positions[3] = get_node("SpritePositionFour")
+	sprite_positions[4] = get_node("SpritePositionFive")
+	sprite_positions[5] = get_node("SpritePositionSix")
 
 	bass_drum_timer.wait_time = snapped(float(60.0 / Global.selected_bpm), 0.01)
 	
@@ -42,7 +49,8 @@ func _process(delta: float) -> void:
 			previous_player_hit_time = current_player_hit_time
 			score_set.append((player_hit_time_delta * 100.0) / bass_drum_timer_goal )
 			beat_sprite = beat_sprite_scene.instantiate()
-			get_node(".").add_child(beat_sprite)
+			var rng = RandomNumberGenerator.new()
+			sprite_positions[rng.randi_range(0, 5)].add_child(beat_sprite)
 			print("Your score: ", player_hit_time_delta)
 
 func _on_bass_drum_timer_timeout() -> void:

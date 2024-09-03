@@ -50,4 +50,22 @@ text = "sdfsdf"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SpritePositionOne" type="Marker2D" parent="."]
+position = Vector2(131, 113)
+
+[node name="SpritePositionTwo" type="Marker2D" parent="."]
+position = Vector2(906, 184)
+
+[node name="SpritePositionThree" type="Marker2D" parent="."]
+position = Vector2(176, 398)
+
+[node name="SpritePositionFour" type="Marker2D" parent="."]
+position = Vector2(434, 74)
+
+[node name="SpritePositionFive" type="Marker2D" parent="."]
+position = Vector2(964, 425)
+
+[node name="SpritePositionSix" type="Marker2D" parent="."]
+position = Vector2(533, 553)
+
 [connection signal="timeout" from="BassDrum/BassDrumTimer" to="." method="_on_bass_drum_timer_timeout"]

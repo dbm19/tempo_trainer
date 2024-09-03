@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp6vk4vv3ychb"]
+[gd_scene load_steps=6 format=3 uid="uid://cp6vk4vv3ychb"]
 
 [ext_resource type="Texture2D" uid="uid://bogn56bfgvkxl" path="res://icon.svg" id="1_vphil"]
+[ext_resource type="Script" path="res://beat_sprite.gd" id="2_ywem7"]
 
 [sub_resource type="Animation" id="Animation_omycw"]
 resource_name = "fade_out"
-length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -12,7 +12,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 0.966667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -42,9 +42,12 @@ _data = {
 [node name="BeatSprite" type="Sprite2D"]
 scale = Vector2(4.07813, 4.07813)
 texture = ExtResource("1_vphil")
+script = ExtResource("2_ywem7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hwl6j")
 }
 autoplay = "fade_out"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
