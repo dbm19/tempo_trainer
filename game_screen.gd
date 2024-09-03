@@ -11,6 +11,8 @@ var eight_count
 var number_of_beats
 var game_start
 var score_set = []
+var beat_sprite_scene
+var beat_sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +22,7 @@ func _ready() -> void:
 	eight_count = 8
 	number_of_beats = 16
 	game_start = false
+	beat_sprite_scene = preload("res://beat_sprite.tscn")
 
 	bass_drum_timer.wait_time = snapped(float(60.0 / Global.selected_bpm), 0.01)
 	
@@ -38,6 +41,8 @@ func _process(delta: float) -> void:
 			player_hit_time_delta = current_player_hit_time - previous_player_hit_time
 			previous_player_hit_time = current_player_hit_time
 			score_set.append((player_hit_time_delta * 100.0) / bass_drum_timer_goal )
+			beat_sprite = beat_sprite_scene.instantiate()
+			get_node(".").add_child(beat_sprite)
 			print("Your score: ", player_hit_time_delta)
 
 func _on_bass_drum_timer_timeout() -> void:
