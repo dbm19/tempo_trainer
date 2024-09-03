@@ -17,7 +17,7 @@ func _ready() -> void:
 	bass_drum = get_node("BassDrum")
 	bass_drum_timer = get_node("BassDrum/BassDrumTimer")
 	countdown = get_node("Countdown")
-	four_count = 4
+	four_count = 8
 	number_of_beats = 16
 	game_start = false
 
@@ -34,11 +34,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if game_start == true:
 		if Input.is_action_just_pressed("player_hit"):
-			print(previous_player_hit_time)
 			current_player_hit_time = Time.get_ticks_msec()
-			print(current_player_hit_time)
 			player_hit_time_delta = current_player_hit_time - previous_player_hit_time
-			previous_player_hit_time= current_player_hit_time
+			previous_player_hit_time = current_player_hit_time
 			score_set.append((player_hit_time_delta * 100.0) / bass_drum_timer_goal )
 			print("Your score: ", player_hit_time_delta)
 
