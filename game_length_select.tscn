@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvlwis6s76rmk"]
+
+[ext_resource type="Texture2D" uid="uid://cxyoumpton8ii" path="res://art_assets/select_game_length.png" id="1_e55et"]
+[ext_resource type="Script" path="res://game_length_select.gd" id="1_t68a4"]
+[ext_resource type="Texture2D" uid="uid://ckbne4thlkvq2" path="res://art_assets/16_beats_button.png" id="2_4a0eh"]
+[ext_resource type="Texture2D" uid="uid://fns3qu3opnbd" path="res://art_assets/24_beats_button.png" id="3_r01ga"]
+[ext_resource type="Texture2D" uid="uid://dtprdlpsednwf" path="res://art_assets/32_beats_button.png" id="4_odft1"]
+[ext_resource type="Texture2D" uid="uid://bq8uwmko1k4uw" path="res://art_assets/custom_game_length.png" id="5_qyom4"]
+[ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="7_4sn1t"]
+[ext_resource type="Texture2D" uid="uid://c8p1afn4thsat" path="res://art_assets/back_button.png" id="8_e67t2"]
+[ext_resource type="Script" path="res://back_button.gd" id="9_tpicg"]
+
+[sub_resource type="Gradient" id="Gradient_1lqo8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ivglp"]
+gradient = SubResource("Gradient_1lqo8")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.860092, 0.37844)
+
+[node name="GameLengthSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t68a4")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ivglp")
+
+[node name="GameLengthSelectTitle" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -372.0
+offset_right = 372.0
+offset_bottom = 136.0
+grow_horizontal = 2
+texture = ExtResource("1_e55et")
+
+[node name="BpmButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -184.0
+offset_right = 547.0
+offset_bottom = 352.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="SixteenBeatsButton" type="Button" parent="BpmButtonsContainer"]
+layout_mode = 2
+icon = ExtResource("2_4a0eh")
+flat = true
+icon_alignment = 1
+
+[node name="TwentyFourBeatsButton" type="Button" parent="BpmButtonsContainer"]
+layout_mode = 2
+icon = ExtResource("3_r01ga")
+flat = true
+icon_alignment = 1
+
+[node name="ThirtyTwoBeatsButton" type="Button" parent="BpmButtonsContainer"]
+layout_mode = 2
+icon = ExtResource("4_odft1")
+flat = true
+icon_alignment = 1
+
+[node name="CustomLength" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -610.0
+offset_top = -63.0
+offset_right = 10.0
+offset_bottom = 105.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_qyom4")
+
+[node name="LengthInput" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -559.0
+offset_top = 101.0
+offset_right = -50.0
+offset_bottom = 191.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_4sn1t")
+theme_override_font_sizes/font_size = 50
+
+[node name="BackButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("8_e67t2")
+flat = true
+icon_alignment = 1
+script = ExtResource("9_tpicg")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

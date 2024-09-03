@@ -24,7 +24,7 @@ func _ready() -> void:
 	bass_drum_timer = get_node("BassDrum/BassDrumTimer")
 	countdown = get_node("Countdown")
 	eight_count = 8
-	number_of_beats = 16
+	number_of_beats = 32
 	game_start = false
 	beat_sprite_scene = preload("res://beat_sprite.tscn")
 	sprite_positions[0] = get_node("SpritePositionOne")

@@ -10,10 +10,10 @@
 [ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="8_b2dxe"]
 [ext_resource type="Texture2D" uid="uid://bcwg1xa1ckyh2" path="res://art_assets/custom_bpm.png" id="9_aosh3"]
 
-[sub_resource type="Gradient" id="Gradient_1lqo8"]
+[sub_resource type="Gradient" id="Gradient_wsbfj"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xy4aa"]
-gradient = SubResource("Gradient_1lqo8")
+gradient = SubResource("Gradient_wsbfj")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.860092, 0.37844)
 
@@ -97,10 +97,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -554.0
-offset_top = -12.0
-offset_right = -45.0
-offset_bottom = 78.0
+offset_left = -555.0
+offset_top = 82.0
+offset_right = -46.0
+offset_bottom = 172.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_b2dxe")
@@ -108,10 +108,10 @@ theme_override_font_sizes/font_size = 50
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 536.0
-offset_top = 146.0
-offset_right = 1160.0
-offset_bottom = 314.0
+offset_left = 544.0
+offset_top = 249.0
+offset_right = 1168.0
+offset_bottom = 417.0
 texture = ExtResource("9_aosh3")
 
 [connection signal="pressed" from="BpmButtonsContainer/SixtyBpmButton" to="." method="_on_sixty_bpm_button_pressed"]
