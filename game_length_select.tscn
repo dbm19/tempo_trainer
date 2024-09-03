@@ -118,4 +118,8 @@ flat = true
 icon_alignment = 1
 script = ExtResource("9_tpicg")
 
+[connection signal="pressed" from="BpmButtonsContainer/SixteenBeatsButton" to="." method="_on_sixteen_beats_button_pressed"]
+[connection signal="pressed" from="BpmButtonsContainer/TwentyFourBeatsButton" to="." method="_on_twenty_four_beats_button_pressed"]
+[connection signal="pressed" from="BpmButtonsContainer/ThirtyTwoBeatsButton" to="." method="_on_thirty_two_beats_button_pressed"]
+[connection signal="text_submitted" from="LengthInput" to="." method="_on_length_input_text_submitted"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
