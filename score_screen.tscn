@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://drm7q0tpulu3p"]
+[gd_scene load_steps=4 format=3 uid="uid://drm7q0tpulu3p"]
+
+[ext_resource type="Texture2D" uid="uid://dxspc7fvea2m4" path="res://art_assets/score_title.png" id="1_cbyyn"]
 
 [sub_resource type="Gradient" id="Gradient_dog5j"]
 
@@ -28,3 +30,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_a3e4i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -312.0
+offset_right = 312.0
+offset_bottom = 136.0
+grow_horizontal = 2
+texture = ExtResource("1_cbyyn")
