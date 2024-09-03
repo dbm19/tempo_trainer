@@ -5,6 +5,8 @@ var selected_bpm
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	selected_bpm = 120
+	var test = wrapi(2, -5, -1)
+	print(test)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

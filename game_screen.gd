@@ -14,6 +14,9 @@ var score_set = []
 var beat_sprite_scene
 var beat_sprite
 var sprite_positions = [0, 1, 2, 3, 4, 5]
+var rng
+var current_sprite_position
+var previous_sprite_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,9 +51,21 @@ func _process(delta: float) -> void:
 			player_hit_time_delta = current_player_hit_time - previous_player_hit_time
 			previous_player_hit_time = current_player_hit_time
 			score_set.append((player_hit_time_delta * 100.0) / bass_drum_timer_goal )
+			
 			beat_sprite = beat_sprite_scene.instantiate()
-			var rng = RandomNumberGenerator.new()
-			sprite_positions[rng.randi_range(0, 5)].add_child(beat_sprite)
+			rng = RandomNumberGenerator.new()
+			var sprite_positions_index = rng.randi_range(0, 5)
+			current_sprite_position = sprite_positions[sprite_positions_index]
+			if current_sprite_position != previous_sprite_position:
+				current_sprite_position.add_child(beat_sprite)
+			else:
+				if sprite_positions_index != 5:
+					current_sprite_position = sprite_positions[sprite_positions_index + 1]
+				else:
+					current_sprite_position = sprite_positions[0]
+				current_sprite_position.add_child(beat_sprite)
+			previous_sprite_position = current_sprite_position
+			
 			print("Your score: ", player_hit_time_delta)
 
 func _on_bass_drum_timer_timeout() -> void:
