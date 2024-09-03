@@ -7,7 +7,7 @@ var bass_drum
 var bass_drum_timer
 var bass_drum_timer_goal
 var countdown
-var four_count
+var eight_count
 var number_of_beats
 var game_start
 var score_set = []
@@ -17,7 +17,7 @@ func _ready() -> void:
 	bass_drum = get_node("BassDrum")
 	bass_drum_timer = get_node("BassDrum/BassDrumTimer")
 	countdown = get_node("Countdown")
-	four_count = 8
+	eight_count = 8
 	number_of_beats = 16
 	game_start = false
 
@@ -26,7 +26,7 @@ func _ready() -> void:
 	bass_drum_timer_goal = bass_drum_timer.wait_time * 1000
 	bass_drum.playing = true
 	bass_drum_timer.start()
-	countdown.text = str(four_count)
+	countdown.text = str(eight_count)
 	
 	print("Goal: ", bass_drum_timer_goal)
 	
@@ -43,10 +43,10 @@ func _process(delta: float) -> void:
 func _on_bass_drum_timer_timeout() -> void:
 	bass_drum.playing = true
 
-	if four_count > 1:
-		four_count -= 1
-		countdown.text = str(four_count)
-		if four_count == 1:
+	if eight_count > 1:
+		eight_count -= 1
+		countdown.text = str(eight_count)
+		if eight_count == 1:
 			previous_player_hit_time = Time.get_ticks_msec()
 			print(previous_player_hit_time)
 	else:

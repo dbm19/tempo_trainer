@@ -6,9 +6,9 @@ var one_twenty_bpm_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sixty_bpm_button = get_node("MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/SixtyBpmButton")
-	hundred_bpm_button = get_node("MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/HundredBpmButton")
-	one_twenty_bpm_button = get_node("MarginContainer/BpmSelectUiContainer/BpmButtonsContainer/OneTwentyBpmButton")
+	sixty_bpm_button = get_node("BpmButtonsContainer/SixtyBpmButton")
+	hundred_bpm_button = get_node("BpmButtonsContainer/HundredBpmButton")
+	one_twenty_bpm_button = get_node("BpmButtonsContainer/OneTwentyBpmButton")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://s5o1blvw3dpq"]
+
+[ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="1_ra2ne"]
+
+[sub_resource type="Gradient" id="Gradient_u4xs7"]
+colors = PackedColorArray(0.242966, 0.242966, 0.242966, 1, 0.756087, 0.756087, 0.756087, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rlnrl"]
+gradient = SubResource("Gradient_u4xs7")
+fill_from = Vector2(0, 1)
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rlnrl")
+
+[node name="TutorialText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -580.0
+offset_top = -264.0
+offset_right = 580.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ra2ne")
+theme_override_font_sizes/font_size = 50
+text = "Your objective is to stay on the beat for 16 beats.
+
+After you select a BPM, there will be an 8-beat countdown accompanied by a bass drum to start the game. 
+
+Once the game begins, the bass drum will go silent -  press the space bar to keep the beat as best as you can!"
+autowrap_mode = 2
