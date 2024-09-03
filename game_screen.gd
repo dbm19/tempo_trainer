@@ -1,6 +1,5 @@
 extends Node2D
 
-var previous_player_hit_time= 0
 var player_hit_time_delta = 0
 var current_player_hit_time = 0
 var bass_drum
@@ -17,8 +16,8 @@ var sprite_positions = [0, 1, 2, 3, 4, 5]
 var rng
 var current_sprite_position
 var previous_sprite_position
+var drum_hit
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bass_drum = get_node("BassDrum")
 	bass_drum_timer = get_node("BassDrum/BassDrumTimer")
@@ -43,14 +42,13 @@ func _ready() -> void:
 	
 	print("Goal: ", bass_drum_timer_goal)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if game_start == true:
 		if Input.is_action_just_pressed("player_hit"):
 			current_player_hit_time = Time.get_ticks_msec()
-			player_hit_time_delta = current_player_hit_time - previous_player_hit_time
-			previous_player_hit_time = current_player_hit_time
-			score_set.append((player_hit_time_delta * 100.0) / bass_drum_timer_goal )
+			player_hit_time_delta = current_player_hit_time - drum_hit
+			print(drum_hit, " ", current_player_hit_time)
+			score_set.append(player_hit_time_delta)
 			
 			beat_sprite = beat_sprite_scene.instantiate()
 			rng = RandomNumberGenerator.new()
@@ -74,14 +72,12 @@ func _on_bass_drum_timer_timeout() -> void:
 	if eight_count > 1:
 		eight_count -= 1
 		countdown.text = str(eight_count)
-		if eight_count == 1:
-			previous_player_hit_time = Time.get_ticks_msec()
-			print(previous_player_hit_time)
 	else:
 		game_start = true
 		number_of_beats -= 1
 		countdown.text = ""
 		bass_drum.volume_db = -100
+		drum_hit = Time.get_ticks_msec()
 		if number_of_beats == -1:
 			print(score_set)
 			get_tree().change_scene_to_file("res://score_screen.tscn")
