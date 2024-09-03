@@ -26,7 +26,6 @@ func _on_one_twenty_bpm_button_pressed() -> void:
 	Global.selected_bpm = 120
 	get_tree().change_scene_to_file("res://game_length_select.tscn")
 
-
 func _on_bpm_input_text_submitted(new_text: String) -> void:
 	if new_text.is_valid_int() && int(new_text) > 0:
 		Global.selected_bpm = int(new_text)

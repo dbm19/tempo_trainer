@@ -17,6 +17,8 @@ var rng
 var current_sprite_position
 var previous_sprite_position
 var drum_hit
+var drum_hit_array = []
+var drum_hit_array_index = 0
 
 func _ready() -> void:
 	bass_drum = get_node("BassDrum")
@@ -46,8 +48,8 @@ func _process(delta: float) -> void:
 	if game_start == true:
 		if Input.is_action_just_pressed("player_hit"):
 			current_player_hit_time = Time.get_ticks_msec()
-			player_hit_time_delta = current_player_hit_time - drum_hit
-			print(drum_hit, " ", current_player_hit_time)
+			player_hit_time_delta = current_player_hit_time - drum_hit_array[drum_hit_array_index]
+			print(drum_hit_array[drum_hit_array_index], " ", current_player_hit_time)
 			score_set.append(player_hit_time_delta)
 			
 			beat_sprite = beat_sprite_scene.instantiate()
@@ -64,6 +66,7 @@ func _process(delta: float) -> void:
 				current_sprite_position.add_child(beat_sprite)
 			previous_sprite_position = current_sprite_position
 			
+			drum_hit_array_index += 1
 			print("Your score: ", player_hit_time_delta)
 
 func _on_bass_drum_timer_timeout() -> void:
@@ -78,6 +81,12 @@ func _on_bass_drum_timer_timeout() -> void:
 		countdown.text = ""
 		bass_drum.volume_db = -100
 		drum_hit = Time.get_ticks_msec()
+		if eight_count == 1:
+			drum_hit_array.append(drum_hit)
+			for n in range(1, Global.selected_length + 1):
+				drum_hit_array.append(drum_hit + (n * bass_drum_timer_goal))
+			eight_count -= 1
+			print(drum_hit_array)
 		if number_of_beats == -1:
 			print(score_set)
 			get_tree().change_scene_to_file("res://score_screen.tscn")
