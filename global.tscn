@@ -8,3 +8,5 @@ script = ExtResource("1_sqbur")
 
 [node name="MenuSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ho6d0")
+
+[node name="GameEndSound" type="AudioStreamPlayer2D" parent="."]

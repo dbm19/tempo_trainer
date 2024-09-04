@@ -66,6 +66,10 @@ func _process(delta: float) -> void:
 			
 			drum_hit_array_index += 1
 			print("Your score: ", player_hit_time_delta)
+			
+		if drum_hit_array_index == drum_hit_array.size():
+				print(score_set)
+				get_tree().change_scene_to_file("res://score_screen.tscn")
 
 func _on_bass_drum_timer_timeout() -> void:
 	bass_drum.playing = true
