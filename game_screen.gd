@@ -78,7 +78,6 @@ func _process(delta: float) -> void:
 			
 			drum_hit_array_index += 1
 			Global.average_delta += abs(player_hit_time_delta)
-			print(Global.average_delta)
 			print("Your score: ", player_hit_time_delta)
 			
 		if drum_hit_array_index == drum_hit_array.size():
@@ -98,6 +97,7 @@ func _on_bass_drum_timer_timeout() -> void:
 		countdown.text = ""
 		bass_drum.volume_db = -100
 		drum_hit = Time.get_ticks_msec()
+		print(drum_hit)
 		if eight_count == 1:
 			drum_hit_array.append(drum_hit)
 			for n in range(1, Global.selected_length + 1):
@@ -105,9 +105,5 @@ func _on_bass_drum_timer_timeout() -> void:
 			eight_count -= 1
 		if number_of_beats == -1:
 			print(score_set)
-			if Global.selected_length:
-				print(Global.selected_length)
-			else:
-				print("wtf")
 			Global.average_delta = Global.average_delta / Global.selected_length
 			get_tree().change_scene_to_file("res://score_screen.tscn")

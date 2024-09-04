@@ -41,8 +41,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -312.0
+offset_top = 5.0
 offset_right = 312.0
-offset_bottom = 136.0
+offset_bottom = 141.0
 grow_horizontal = 2
 
 [node name="BpmSelectTitle" type="TextureRect" parent="BpmSelectUiContainer"]
