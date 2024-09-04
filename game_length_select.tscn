@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ckbne4thlkvq2" path="res://art_assets/16_beats_button.png" id="2_4a0eh"]
 [ext_resource type="Texture2D" uid="uid://fns3qu3opnbd" path="res://art_assets/24_beats_button.png" id="3_r01ga"]
 [ext_resource type="Texture2D" uid="uid://dtprdlpsednwf" path="res://art_assets/32_beats_button.png" id="4_odft1"]
-[ext_resource type="Texture2D" uid="uid://bq8uwmko1k4uw" path="res://art_assets/custom_game_length.png" id="5_qyom4"]
 [ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="7_4sn1t"]
 [ext_resource type="Texture2D" uid="uid://c8p1afn4thsat" path="res://art_assets/back_button.png" id="8_e67t2"]
+[ext_resource type="Texture2D" uid="uid://d04o0ujevrif1" path="res://art_assets/custom_length.png" id="9_he4hl"]
 [ext_resource type="Script" path="res://back_button.gd" id="9_tpicg"]
 
 [sub_resource type="Gradient" id="Gradient_i5hsn"]
@@ -79,21 +79,6 @@ icon = ExtResource("4_odft1")
 flat = true
 icon_alignment = 1
 
-[node name="CustomLength" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -610.0
-offset_top = -63.0
-offset_right = 10.0
-offset_bottom = 105.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("5_qyom4")
-
 [node name="LengthInput" type="LineEdit" parent="."]
 layout_mode = 1
 anchors_preset = 6
@@ -110,7 +95,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_4sn1t")
 theme_override_font_sizes/font_size = 50
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButtonTwo" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
 icon = ExtResource("8_e67t2")
@@ -118,8 +103,28 @@ flat = true
 icon_alignment = 1
 script = ExtResource("9_tpicg")
 
+[node name="CustomLength" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -624.0
+offset_top = -68.0
+offset_bottom = 68.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("9_he4hl")
+
+[connection signal="button_down" from="BpmButtonsContainer/SixteenBeatsButton" to="." method="_on_sixteen_beats_button_button_down"]
 [connection signal="pressed" from="BpmButtonsContainer/SixteenBeatsButton" to="." method="_on_sixteen_beats_button_pressed"]
+[connection signal="button_down" from="BpmButtonsContainer/TwentyFourBeatsButton" to="." method="_on_twenty_four_beats_button_button_down"]
 [connection signal="pressed" from="BpmButtonsContainer/TwentyFourBeatsButton" to="." method="_on_twenty_four_beats_button_pressed"]
+[connection signal="button_down" from="BpmButtonsContainer/ThirtyTwoBeatsButton" to="." method="_on_thirty_two_beats_button_button_down"]
 [connection signal="pressed" from="BpmButtonsContainer/ThirtyTwoBeatsButton" to="." method="_on_thirty_two_beats_button_pressed"]
 [connection signal="text_submitted" from="LengthInput" to="." method="_on_length_input_text_submitted"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="BackButtonTwo" to="BackButtonTwo" method="_on_button_down"]
+[connection signal="mouse_entered" from="BackButtonTwo" to="BackButtonTwo" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BackButtonTwo" to="BackButtonTwo" method="_on_mouse_exited"]
+[connection signal="pressed" from="BackButtonTwo" to="BackButtonTwo" method="_on_pressed"]

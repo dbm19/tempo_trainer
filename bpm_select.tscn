@@ -107,16 +107,27 @@ theme_override_fonts/font = ExtResource("8_b2dxe")
 theme_override_font_sizes/font_size = 50
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 544.0
-offset_top = 249.0
-offset_right = 1168.0
-offset_bottom = 417.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -624.0
+offset_top = -68.0
+offset_bottom = 68.0
+grow_horizontal = 0
+grow_vertical = 2
 texture = ExtResource("9_aosh3")
 
+[connection signal="button_down" from="BpmButtonsContainer/SixtyBpmButton" to="." method="_on_sixty_bpm_button_button_down"]
 [connection signal="pressed" from="BpmButtonsContainer/SixtyBpmButton" to="." method="_on_sixty_bpm_button_pressed"]
+[connection signal="button_down" from="BpmButtonsContainer/HundredBpmButton" to="." method="_on_hundred_bpm_button_button_down"]
 [connection signal="pressed" from="BpmButtonsContainer/HundredBpmButton" to="." method="_on_hundred_bpm_button_pressed"]
+[connection signal="button_down" from="BpmButtonsContainer/OneTwentyBpmButton" to="." method="_on_one_twenty_bpm_button_button_down"]
 [connection signal="pressed" from="BpmButtonsContainer/OneTwentyBpmButton" to="." method="_on_one_twenty_bpm_button_pressed"]
+[connection signal="button_down" from="BackButton" to="BackButton" method="_on_button_down"]
 [connection signal="mouse_entered" from="BackButton" to="BackButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="BackButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
 [connection signal="text_submitted" from="BpmInput" to="." method="_on_bpm_input_text_submitted"]

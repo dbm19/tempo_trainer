@@ -50,6 +50,13 @@ func _process(delta: float) -> void:
 			print(drum_hit_array[drum_hit_array_index], " ", current_player_hit_time)
 			score_set.append(abs(player_hit_time_delta))
 			
+			if player_hit_time_delta < 0:
+				Global.ahead_of_beat_total += 1
+			elif player_hit_time_delta > 0:
+				Global.behind_beat_total += 1
+			else:
+				Global.on_beat_total += 1
+			
 			beat_sprite = beat_sprite_scene.instantiate()
 			rng = RandomNumberGenerator.new()
 			var sprite_positions_index = rng.randi_range(0, 5)
@@ -65,6 +72,8 @@ func _process(delta: float) -> void:
 			previous_sprite_position = current_sprite_position
 			
 			drum_hit_array_index += 1
+			Global.average_delta += abs(player_hit_time_delta)
+			print(Global.average_delta)
 			print("Your score: ", player_hit_time_delta)
 			
 		if drum_hit_array_index == drum_hit_array.size():
@@ -90,4 +99,6 @@ func _on_bass_drum_timer_timeout() -> void:
 			eight_count -= 1
 		if number_of_beats == -1:
 			print(score_set)
+			print(Global.selected_length)
+			Global.average_delta = Global.average_delta / Global.selected_length
 			get_tree().change_scene_to_file("res://score_screen.tscn")

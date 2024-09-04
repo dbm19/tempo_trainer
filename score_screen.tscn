@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drm7q0tpulu3p"]
+[gd_scene load_steps=6 format=3 uid="uid://drm7q0tpulu3p"]
 
+[ext_resource type="Script" path="res://score_screen.gd" id="1_8y1ox"]
 [ext_resource type="Texture2D" uid="uid://dxspc7fvea2m4" path="res://art_assets/score_title.png" id="1_cbyyn"]
+[ext_resource type="FontFile" uid="uid://ceqsmd7sr5uio" path="res://fonts/spartan/Spartan-Regular.ttf" id="3_u2khb"]
 
 [sub_resource type="Gradient" id="Gradient_dog5j"]
 
@@ -16,11 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+script = ExtResource("1_8y1ox")
 
 [node name="ScoreScreenBackground" type="TextureRect" parent="."]
 layout_mode = 1
@@ -30,6 +28,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_a3e4i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -98.0
+offset_right = 148.5
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ExactlyOnBeat" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u2khb")
+theme_override_font_sizes/font_size = 40
+text = "Exactly on beat:"
+
+[node name="AheadOfBeat" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u2khb")
+theme_override_font_sizes/font_size = 40
+text = "Ahead of the beat:"
+
+[node name="BehindBeat" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u2khb")
+theme_override_font_sizes/font_size = 40
+text = "Behind the beat:"
+
+[node name="AverageDelta" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u2khb")
+theme_override_font_sizes/font_size = 40
+text = "Average delta: "
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

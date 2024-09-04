@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_new_game_button_pressed() -> void:
+	Global.menu_sound.playing = true
 	get_tree().change_scene_to_file("res://bpm_select.tscn")
 	
 func _on_new_game_button_mouse_entered() -> void:
@@ -25,6 +26,7 @@ func _on_new_game_button_button_down() -> void:
 	new_game_button.icon = load("res://art_assets/new_game_button_pressed.png")
 
 func _on_tutorial_button_pressed() -> void:
+	Global.menu_sound.playing = true
 	get_tree().change_scene_to_file("res://tutorial.tscn")
 
 func _on_tutorial_button_mouse_entered() -> void:

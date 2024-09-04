@@ -16,14 +16,17 @@ func _process(delta: float) -> void:
 
 func _on_sixty_bpm_button_pressed() -> void:
 	Global.selected_bpm = 60
+	Global.menu_sound.playing = true
 	get_tree().change_scene_to_file("res://game_length_select.tscn")
 
 func _on_hundred_bpm_button_pressed() -> void:
 	Global.selected_bpm = 100
+	Global.menu_sound.playing = true
 	get_tree().change_scene_to_file("res://game_length_select.tscn")
 	
 func _on_one_twenty_bpm_button_pressed() -> void:
 	Global.selected_bpm = 120
+	Global.menu_sound.playing = true 
 	get_tree().change_scene_to_file("res://game_length_select.tscn")
 
 func _on_bpm_input_text_submitted(new_text: String) -> void:
@@ -31,6 +34,11 @@ func _on_bpm_input_text_submitted(new_text: String) -> void:
 		Global.selected_bpm = int(new_text)
 		get_tree().change_scene_to_file("res://game_length_select.tscn")
 
+func _on_sixty_bpm_button_button_down() -> void:
+	sixty_bpm_button.icon = load("res://art_assets/60_button_pressed.png")
 
-func _on_back_button_mouse_entered() -> void:
-	pass # Replace with function body.
+func _on_hundred_bpm_button_button_down() -> void:
+	hundred_bpm_button.icon = load("res://art_assets/100_button_pressed.png")
+
+func _on_one_twenty_bpm_button_button_down() -> void:
+	one_twenty_bpm_button.icon = load("res://art_assets/120_button_pressed.png")
