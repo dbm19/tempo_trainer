@@ -40,22 +40,22 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SpritePositionOne" type="Marker2D" parent="Control"]
-position = Vector2(-489, -247)
+position = Vector2(-441, -220)
 
 [node name="SpritePositionTwo" type="Marker2D" parent="Control"]
-position = Vector2(-35, -241)
+position = Vector2(-28, -217)
 
 [node name="SpritePositionThree" type="Marker2D" parent="Control"]
-position = Vector2(428, -234)
+position = Vector2(437, -222)
 
 [node name="SpritePositionFour" type="Marker2D" parent="Control"]
-position = Vector2(-437, 212)
+position = Vector2(-400, 191)
 
 [node name="SpritePositionFive" type="Marker2D" parent="Control"]
-position = Vector2(-1, 217)
+position = Vector2(28, 196)
 
 [node name="SpritePositionSix" type="Marker2D" parent="Control"]
-position = Vector2(449, 220)
+position = Vector2(463, 180)
 
 [node name="BassDrum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_1vjy8")
