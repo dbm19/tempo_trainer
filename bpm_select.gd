@@ -30,3 +30,7 @@ func _on_bpm_input_text_submitted(new_text: String) -> void:
 	if new_text.is_valid_int() && int(new_text) > 0:
 		Global.selected_bpm = int(new_text)
 		get_tree().change_scene_to_file("res://game_length_select.tscn")
+
+
+func _on_back_button_mouse_entered() -> void:
+	pass # Replace with function body.

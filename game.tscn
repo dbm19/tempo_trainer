@@ -59,6 +59,7 @@ position = Vector2(449, 220)
 
 [node name="BassDrum" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_1vjy8")
+volume_db = 10.0
 
 [node name="BassDrumTimer" type="Timer" parent="BassDrum"]
 wait_time = 0.4

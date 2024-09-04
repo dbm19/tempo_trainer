@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjn3s7kdafng"]
+[gd_scene load_steps=3 format=3 uid="uid://cjn3s7kdafng"]
 
 [ext_resource type="Script" path="res://global.gd" id="1_sqbur"]
+[ext_resource type="AudioStream" uid="uid://4tiboojh50sw" path="res://sounds/menu_sound.wav" id="2_ho6d0"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_sqbur")
+
+[node name="MenuSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ho6d0")

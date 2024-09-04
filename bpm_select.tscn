@@ -117,5 +117,6 @@ texture = ExtResource("9_aosh3")
 [connection signal="pressed" from="BpmButtonsContainer/SixtyBpmButton" to="." method="_on_sixty_bpm_button_pressed"]
 [connection signal="pressed" from="BpmButtonsContainer/HundredBpmButton" to="." method="_on_hundred_bpm_button_pressed"]
 [connection signal="pressed" from="BpmButtonsContainer/OneTwentyBpmButton" to="." method="_on_one_twenty_bpm_button_pressed"]
+[connection signal="mouse_entered" from="BackButton" to="BackButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
 [connection signal="text_submitted" from="BpmInput" to="." method="_on_bpm_input_text_submitted"]
