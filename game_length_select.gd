@@ -23,7 +23,6 @@ func _on_thirty_two_beats_button_pressed() -> void:
 	Global.menu_sound.playing = true
 	get_tree().change_scene_to_file("res://game.tscn")
 
-
 func _on_length_input_text_submitted(new_text: String) -> void:
 	Global.selected_length = int(new_text)
 	get_tree().change_scene_to_file("res://game.tscn")

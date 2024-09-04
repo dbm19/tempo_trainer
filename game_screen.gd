@@ -17,7 +17,7 @@ var rng
 var current_sprite_position
 var previous_sprite_position
 var drum_hit
-var drum_hit_array = []
+var drum_hit_array
 var drum_hit_array_index = 0
 
 func _ready() -> void:
@@ -25,7 +25,12 @@ func _ready() -> void:
 	bass_drum_timer = get_node("BassDrum/BassDrumTimer")
 	countdown = get_node("Countdown")
 	eight_count = 8
+	Global.on_beat_total = 0
+	Global.ahead_of_beat_total = 0
+	Global.behind_beat_total = 0
+	Global.average_delta = 0
 	number_of_beats = Global.selected_length
+	drum_hit_array = []
 	game_start = false
 	beat_sprite_scene = preload("res://beat_sprite.tscn")
 	sprite_positions[0] = get_node("Control/SpritePositionOne")
@@ -78,6 +83,7 @@ func _process(delta: float) -> void:
 			
 		if drum_hit_array_index == drum_hit_array.size():
 				print(score_set)
+				Global.average_delta = Global.average_delta / Global.selected_length
 				get_tree().change_scene_to_file("res://score_screen.tscn")
 
 func _on_bass_drum_timer_timeout() -> void:
@@ -99,6 +105,9 @@ func _on_bass_drum_timer_timeout() -> void:
 			eight_count -= 1
 		if number_of_beats == -1:
 			print(score_set)
-			print(Global.selected_length)
+			if Global.selected_length:
+				print(Global.selected_length)
+			else:
+				print("wtf")
 			Global.average_delta = Global.average_delta / Global.selected_length
 			get_tree().change_scene_to_file("res://score_screen.tscn")
